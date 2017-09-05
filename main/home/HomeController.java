@@ -50,6 +50,7 @@ public class HomeController implements Controller{
         DataManager.getInstance().setActiveLabel(tablesActive);
         this.windowManager = windowManager;
         renderTables();
+        renderSideView(1);
         addListeners();
     }
 
@@ -80,10 +81,12 @@ public class HomeController implements Controller{
         Label tableStatus = new Label("Available");
         Label startTime = new Label("Start:");
         Label waiter = new Label("Waiter: ");
-        status.getChildren().addAll(tableStatus, startTime, waiter);
+        Label numCust = new Label("Customers: ");
+        status.getChildren().addAll(tableStatus, startTime, waiter, numCust);
         DataManager.getInstance().putStatus(tableNum, tableStatus);
         DataManager.getInstance().putTime(tableNum, startTime);
         DataManager.getInstance().putWaiter(tableNum, waiter);
+        DataManager.getInstance().putNumCustLabel(tableNum, numCust);
 
         content.getChildren().addAll(header, status);
         window.getChildren().add(content);
@@ -104,12 +107,14 @@ public class HomeController implements Controller{
         order.setOnAction(e -> addItems());
         changeWaiter.setOnAction(e -> changeWaiter());
         endSession.setOnAction(e -> endSession());
+        addCust.setOnAction(e -> addCust());
     }
 
     private void addItems() {
+        int selectedTable = DataManager.getInstance().getSelectedTable();
         Stage stage = new Stage();
         windowManager.createView(stage, "OrderPopup");
-        renderSideView(DataManager.getInstance().getSelectedTable());
+        renderSideView(selectedTable);
         sidePanel.refresh();
     }
 
@@ -150,6 +155,9 @@ public class HomeController implements Controller{
 
         Label waiterLabel = DataManager.getInstance().getWaiter(selectedTable);
         waiterLabel.setText("Waiter:");
+
+        Label numCust = DataManager.getInstance().getNumCustLabel(selectedTable);
+        numCust.setText("Customers: ");
     }
 
     private void changeWaiter() {
@@ -169,5 +177,10 @@ public class HomeController implements Controller{
         }
 
         removeAll();
+    }
+
+    private void addCust() {
+        Stage stage = new Stage();
+        windowManager.createView(stage, "CustomerPopup");
     }
 }

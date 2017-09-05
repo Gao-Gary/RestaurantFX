@@ -28,20 +28,22 @@ public class Table {
 
     }
 
+    public int getCapacity() {
+        return maxCustomers;
+    }
+
+    public int getCustomers() {
+        return numCustomers;
+    }
+
+    public void setcustomers(int forCusts) {numCustomers = forCusts;}
+
     public void checkPlease() {
         assert status.equals(TableStatus.inProgress);
-
-
     }
 
     public void finishDine() {
         assert status.equals(TableStatus.paidFor);
-
-
-    }
-
-    public void makeOrder() {
-
     }
 
     public Bill getBill() {

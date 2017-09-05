@@ -26,6 +26,7 @@ public class DataManager {
     private HashMap<Integer, Label> statusColour;
     private HashMap<Integer, Label> startTime;
     private HashMap<Integer, Label> waiterList;
+    private HashMap<Integer, Label> numCusts;
     private int selectedTable;
     private Label activeLabel;
     private int activeTables;
@@ -44,6 +45,7 @@ public class DataManager {
         statusList = new HashMap<>();
         waiterList = new HashMap<>();
         statusColour = new HashMap<>();
+        numCusts = new HashMap<>();
     }
 
     public ObservableList<FoodItem> getMenu() {
@@ -128,7 +130,6 @@ public class DataManager {
         this.activeLabel = activeLabel;
     }
 
-
     public int getActiveTables() {
         return activeTables;
     }
@@ -136,4 +137,8 @@ public class DataManager {
     public void setActiveTables(int activeTables) {
         this.activeTables = activeTables;
     }
+
+    public Label getNumCustLabel(int forTable) { return numCusts.get(forTable);}
+
+    public void putNumCustLabel(int forTable, Label numCustLabel) { numCusts.put(forTable, numCustLabel);}
 }

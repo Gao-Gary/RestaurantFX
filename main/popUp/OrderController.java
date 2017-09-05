@@ -26,6 +26,7 @@ public class OrderController implements Controller {
     @FXML private TableColumn<FoodItem, Double> priceColumn;
     @FXML private TableView<FoodItem> menu;
     @FXML private ComboBox<String> waiterChoice;
+    @FXML private ComboBox<Integer> numCustomers;
     @FXML private Label reminderLabel;
 
     private Stage stage;
@@ -39,8 +40,21 @@ public class OrderController implements Controller {
         menu.setItems(DataManager.getInstance().getMenu());
         menu.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         addListeners();
+        renderCustomerBox();
 
         waiterChoice.setItems(DataManager.getInstance().getWaiterNames());
+    }
+
+    private void renderCustomerBox() {
+        int selectedTable = DataManager.getInstance().getSelectedTable();
+        ObservableList<Integer> choices = FXCollections.observableArrayList();
+
+        for(int i = 1; i <= DataManager.getInstance().getTable(selectedTable).getCapacity(); i++) {
+            choices.add(i);
+        }
+
+        numCustomers.setItems(choices);
+        numCustomers.getSelectionModel().select(0);
     }
 
     private void addListeners() {
@@ -103,6 +117,7 @@ public class OrderController implements Controller {
             closePopUp();
         } else {
             int selectedTable = DataManager.getInstance().getSelectedTable();
+            DataManager.getInstance().getTable(selectedTable).dine(numCustomers.getSelectionModel().getSelectedItem());
             DataManager.getInstance().getTable(selectedTable).getBill().addAllToBill(toAdd);
 
             Label statusColour = DataManager.getInstance().getStatusColour(selectedTable);
@@ -125,6 +140,9 @@ public class OrderController implements Controller {
 
             Label waiterLabel = DataManager.getInstance().getWaiter(selectedTable);
             waiterLabel.setText("Waiter: " + waiterChoice.getSelectionModel().getSelectedItem());
+
+            Label numCust = DataManager.getInstance().getNumCustLabel(selectedTable);
+            numCust.setText("Customers: " + numCustomers.getSelectionModel().getSelectedItem());
             closePopUp();
         }
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.popUp.CustController">
+   <children>
+      <VBox alignment="CENTER">
+         <children>
+            <Label text="Number of customers..." />
+            <ComboBox fx:id="selectionBox" prefHeight="27.0" prefWidth="207.0" />
+            <HBox alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="confirm" text="Confirm" />
+                  <JFXButton fx:id="cancel" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -17,25 +17,30 @@
             <TableColumn fx:id="priceColumn" prefWidth="76.0" text="Price" />
         </columns>
       </TableView>
-      <HBox alignment="CENTER_LEFT" VBox.vgrow="NEVER">
+      <VBox alignment="CENTER">
          <children>
-            <JFXButton fx:id="makeOrder" text="Place Order" />
-            <JFXButton fx:id="removeItem" text="Remove Item" />
-            <JFXButton fx:id="removeOne" text="Remove One" />
-            <JFXButton fx:id="cancel" text="Cancel" />
-            <ComboBox fx:id="waiterChoice" prefHeight="27.0" prefWidth="101.0" promptText="Waiter...">
-               <HBox.margin>
-                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-               </HBox.margin>
-            </ComboBox>
+            <HBox alignment="CENTER" VBox.vgrow="NEVER">
+               <children>
+                  <JFXButton fx:id="makeOrder" text="Place Order" />
+                  <JFXButton fx:id="removeItem" text="Remove Item" />
+                  <JFXButton fx:id="removeOne" text="Remove One" />
+                  <JFXButton fx:id="cancel" text="Cancel" />
+                  <ComboBox fx:id="waiterChoice" prefHeight="27.0" prefWidth="101.0" promptText="Waiter...">
+                     <HBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="numCustomers" prefHeight="27.0" prefWidth="75.0" promptText="#..." />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
             <Label fx:id="reminderLabel" textFill="#f21616" />
          </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <padding>
-            <Insets bottom="10.0" right="10.0" top="10.0" />
-         </padding>
-      </HBox>
+      </VBox>
    </children>
 </VBox>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.popUp.OrderController">
+   <children>
+      <TableView fx:id="menu" prefHeight="346.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
+          <TableColumn fx:id="nameColumn" prefWidth="448.0" text="Item Name" />
+            <TableColumn fx:id="priceColumn" prefWidth="76.0" text="Price" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER_LEFT" VBox.vgrow="NEVER">
+         <children>
+            <JFXButton fx:id="makeOrder" text="Place Order" />
+            <JFXButton fx:id="removeItem" text="Remove Item" />
+            <JFXButton fx:id="removeOne" text="Remove One" />
+            <JFXButton fx:id="cancel" text="Cancel" />
+            <ComboBox fx:id="waiterChoice" prefHeight="27.0" prefWidth="101.0" promptText="Waiter...">
+               <HBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </HBox.margin>
+            </ComboBox>
+            <Label fx:id="reminderLabel" textFill="#f21616" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

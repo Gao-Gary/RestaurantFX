@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.home.HomeController">
+   <left>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Menu" />
+            <JFXButton fx:id="dining" text="Dining" />
+            <JFXButton fx:id="manage" text="Manage" />
+            <JFXButton fx:id="history" text="History" />
+            <JFXButton fx:id="settings" text="Settings" />
+            <JFXButton fx:id="logout" text="Logout" />
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox alignment="TOP_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="tablesActive" alignment="TOP_LEFT" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane fx:id="tableGrid" gridLinesVisible="true" hgap="8.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="8.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </StackPane>
+   </center>
+   <right>
+      <VBox prefHeight="483.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="sidePanel" prefHeight="399.0" prefWidth="180.0">
+              <columns>
+                <TableColumn fx:id="quantityColumn" prefWidth="21.0" text="#" />
+                <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="91.0" sortType="DESCENDING" text="Name" />
+                  <TableColumn fx:id="priceColumn" prefWidth="67.0" text="Unit Price" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="33.0" prefWidth="180.0">
+               <children>
+                  <JFXButton fx:id="order" text="Order" />
+                  <JFXButton fx:id="remove" text="Remove" />
+                  <JFXButton fx:id="reset" text="Reset" />
+               </children>
+            </HBox>
+            <VBox alignment="TOP_CENTER" prefHeight="121.0" prefWidth="180.0">
+               <children>
+                  <Label text="Table Controls" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <JFXButton fx:id="billing" text="Billing">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="addCust" text="Add Cust." GridPane.columnIndex="1">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="endSession" text="End Session" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="changeWaiter" text="Waiter" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.popUp.WaiterController">
+   <children>
+      <VBox alignment="CENTER">
+         <children>
+            <ComboBox fx:id="waiterList" prefHeight="27.0" prefWidth="155.0" promptText="Change Waiter..." />
+            <HBox alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="confirm" text="Confirm" />
+                  <JFXButton fx:id="cancel" text="Cancel" />
+               </children>
+            </HBox>
+            <Label fx:id="warning" textFill="#eb1d1d" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

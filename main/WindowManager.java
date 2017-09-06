@@ -61,9 +61,6 @@ public class WindowManager {
             case "OrderPopup":
                 result = new FXMLLoader(getClass().getResource("popUp/OrderController.fxml"));
                 break;
-            case "BillPopup":
-                result = new FXMLLoader(getClass().getResource("popUp/BillController.fxml"));
-                break;
             case "WaiterPopup":
                 result = new FXMLLoader(getClass().getResource("popUp/WaiterController.fxml"));
                 break;

@@ -59,8 +59,8 @@
          <children>
             <TableView fx:id="sidePanel" prefHeight="399.0" prefWidth="180.0">
               <columns>
-                <TableColumn fx:id="quantityColumn" prefWidth="21.0" text="#" />
-                <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="91.0" sortType="DESCENDING" text="Name" />
+                <TableColumn fx:id="quantityColumn" prefWidth="30.0" text="#" />
+                <TableColumn fx:id="nameColumn" minWidth="0.0" prefWidth="82.0" sortType="DESCENDING" text="Name" />
                   <TableColumn fx:id="priceColumn" prefWidth="67.0" text="Unit Price" />
               </columns>
             </TableView>

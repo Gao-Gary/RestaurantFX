@@ -9,13 +9,13 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.popUp.BillingController">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0">
+      <VBox alignment="CENTER" prefHeight="435.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TabPane fx:id="tabs" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabs" prefHeight="391.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Bill 1">
                      <content>
-                        <TableView fx:id="mainTable" prefHeight="200.0" prefWidth="200.0">
+                        <TableView fx:id="mainTable">
                           <columns>
                             <TableColumn fx:id="quantity1" prefWidth="75.0" text="#" />
                             <TableColumn fx:id="name1" prefWidth="433.0" text="Item Name" />
@@ -26,7 +26,7 @@
                 </Tab>
               </tabs>
             </TabPane>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER">
                <children>
                   <JFXButton fx:id="confirm" text="Check Out" />
                   <JFXButton fx:id="extra" text="Extra Bill" />

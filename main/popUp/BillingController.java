@@ -120,6 +120,11 @@ public class BillingController implements Controller{
     }
 
     private void confirm() {
+        int selectedTable = DataManager.getInstance().getSelectedTable();
+        Label statusColour = DataManager.getInstance().getStatusColour(selectedTable);
+        statusColour.setStyle("-fx-background-color: yellow;");
+
+        DataManager.getInstance().getTable(selectedTable).checkPlease();
         close();
     }
 

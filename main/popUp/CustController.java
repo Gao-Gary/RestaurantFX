@@ -33,7 +33,7 @@ public class CustController implements Controller {
     private void confirm() {
         int selectedTable = DataManager.getInstance().getSelectedTable();
         Label numCust = DataManager.getInstance().getNumCustLabel(selectedTable);
-        DataManager.getInstance().getTable(selectedTable).setcustomers(selectionBox.getSelectionModel().getSelectedItem());
+        DataManager.getInstance().getTable(selectedTable).setCustomers(selectionBox.getSelectionModel().getSelectedItem());
         numCust.setText("Customers: " + selectionBox.getSelectionModel().getSelectedItem());
         cancel();
     }

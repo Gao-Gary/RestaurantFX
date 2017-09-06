@@ -1,7 +1,7 @@
 package main.model.food;
 
 public class FoodItem {
-    private Integer quantity;
+    private Double quantity;
     private Double price;
     private String name;
     private FoodCategory type;
@@ -10,7 +10,7 @@ public class FoodItem {
         this.type = type;
         this.price = price;
         this.name = name;
-        this.quantity = 0;
+        this.quantity = 0.0;
     }
 
     public void addOne() {
@@ -21,11 +21,11 @@ public class FoodItem {
         quantity--;
     }
 
-    public Integer getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 

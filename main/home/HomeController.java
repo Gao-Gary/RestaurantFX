@@ -108,6 +108,7 @@ public class HomeController implements Controller{
         changeWaiter.setOnAction(e -> changeWaiter());
         endSession.setOnAction(e -> endSession());
         addCust.setOnAction(e -> addCust());
+        billing.setOnAction(e -> startBilling());
     }
 
     private void addItems() {
@@ -134,7 +135,7 @@ public class HomeController implements Controller{
 
     private void removeAll() {
         int selectedTable = DataManager.getInstance().getSelectedTable();
-        DataManager.getInstance().getTable(selectedTable).getBill().clearBill();
+        DataManager.getInstance().getTable(selectedTable).finishDine();
         sidePanel.setItems(null);
 
         Label statusColour = DataManager.getInstance().getStatusColour(selectedTable);
@@ -180,7 +181,24 @@ public class HomeController implements Controller{
     }
 
     private void addCust() {
+        if(sidePanel.getItems().size() == 0)
+            return;
+
         Stage stage = new Stage();
         windowManager.createView(stage, "CustomerPopup");
+    }
+
+    private void startBilling() {
+        if(sidePanel.getItems().size() == 0)
+            return;
+
+        Stage stage = new Stage();
+        windowManager.createView(stage, "BillingPopup");
+
+        int selectedTable = DataManager.getInstance().getSelectedTable();
+        Label statusColour = DataManager.getInstance().getStatusColour(selectedTable);
+        statusColour.setStyle("-fx-background-color: yellow;");
+
+        DataManager.getInstance().getTable(selectedTable).checkPlease();
     }
 }

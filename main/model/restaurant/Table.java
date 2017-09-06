@@ -6,26 +6,35 @@ public class Table {
     private int tableID;
     private int maxCustomers;
     private Bill bill;
+
+
+    private Employee waiter;
     private TableStatus status;
 
     public Table(int maxCapacity, int tableID) {
         numCustomers = 0;
         this.tableID = tableID;
-        bill = new Bill(0);
+        bill = new Bill();
         status = TableStatus.available;
         maxCustomers = maxCapacity;
     }
 
-    public boolean dine(Integer customers) {
+    public void dine(Integer customers, Employee waiter) {
         if(customers > this.maxCustomers)
-            return false;
+            return;
 
         assert status.equals(TableStatus.available);
-        bill = new Bill(customers);
+        this.waiter = waiter;
         status = TableStatus.inProgress;
         numCustomers = customers;
-        return true;
+    }
 
+    public Employee getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(Employee waiter) {
+        this.waiter = waiter;
     }
 
     public int getCapacity() {
@@ -36,14 +45,18 @@ public class Table {
         return numCustomers;
     }
 
-    public void setcustomers(int forCusts) {numCustomers = forCusts;}
+    public void setCustomers(int forCusts) {numCustomers = forCusts;}
 
     public void checkPlease() {
         assert status.equals(TableStatus.inProgress);
+        status = TableStatus.inBilling;
     }
 
     public void finishDine() {
-        assert status.equals(TableStatus.paidFor);
+        bill.clearBill();
+        numCustomers = 0;
+        status = TableStatus.available;
+        waiter = null;
     }
 
     public Bill getBill() {

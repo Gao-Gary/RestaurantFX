@@ -12,6 +12,7 @@ import main.Controller;
 import main.DataManager;
 import main.WindowManager;
 import main.model.food.FoodItem;
+import main.model.restaurant.Employee;
 
 
 import java.util.Calendar;
@@ -70,7 +71,7 @@ public class OrderController implements Controller {
 
     private void addOne() {
         if(menu.getSelectionModel().getSelectedItem() != null) {
-            int quantity = menu.getSelectionModel().getSelectedItem().getQuantity();
+            double quantity = menu.getSelectionModel().getSelectedItem().getQuantity();
             menu.getSelectionModel().getSelectedItem().setQuantity(++quantity);
             menu.refresh();
         }
@@ -78,7 +79,7 @@ public class OrderController implements Controller {
 
     private void removeOne() {
         if(menu.getSelectionModel().getSelectedItem() != null) {
-            int quantity = menu.getSelectionModel().getSelectedItem().getQuantity();
+            double quantity = menu.getSelectionModel().getSelectedItem().getQuantity();
             if(quantity >= 1) {
                 menu.getSelectionModel().getSelectedItem().setQuantity(--quantity);
                 menu.refresh();
@@ -88,7 +89,7 @@ public class OrderController implements Controller {
 
     private void removeAll() {
         if(menu.getSelectionModel().getSelectedItem() != null) {
-            menu.getSelectionModel().getSelectedItem().setQuantity(0);
+            menu.getSelectionModel().getSelectedItem().setQuantity(0.0);
             menu.refresh();
         }
     }
@@ -117,7 +118,8 @@ public class OrderController implements Controller {
             closePopUp();
         } else {
             int selectedTable = DataManager.getInstance().getSelectedTable();
-            DataManager.getInstance().getTable(selectedTable).dine(numCustomers.getSelectionModel().getSelectedItem());
+            DataManager.getInstance().getTable(selectedTable).dine(numCustomers.getSelectionModel().getSelectedItem(),
+                    new Employee(waiterChoice.getSelectionModel().getSelectedItem()));
             DataManager.getInstance().getTable(selectedTable).getBill().addAllToBill(toAdd);
 
             Label statusColour = DataManager.getInstance().getStatusColour(selectedTable);

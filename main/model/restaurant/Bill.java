@@ -9,10 +9,8 @@ import java.util.List;
 
 public class Bill {
     private ArrayList<FoodItem> order;
-    private int numCustomers;
 
-    public Bill(Integer numCustomers) {
-        this.numCustomers = numCustomers;
+    public Bill() {
         order = new ArrayList<>();
     }
 

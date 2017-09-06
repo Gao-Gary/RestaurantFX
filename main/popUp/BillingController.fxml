@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.popUp.BillingController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0">
+         <children>
+            <TabPane fx:id="tabs" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Bill 1">
+                     <content>
+                        <TableView fx:id="mainTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="quantity1" prefWidth="75.0" text="#" />
+                            <TableColumn fx:id="name1" prefWidth="433.0" text="Item Name" />
+                              <TableColumn fx:id="price1" prefWidth="92.0" text="Unit Price" />
+                          </columns>
+                        </TableView>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXButton fx:id="confirm" text="Check Out" />
+                  <JFXButton fx:id="extra" text="Extra Bill" />
+                  <JFXButton fx:id="split" text="Split Item" />
+                  <JFXButton fx:id="moveButton" text="Move To" />
+                  <ComboBox fx:id="move" prefHeight="27.0" prefWidth="100.0" promptText="Bill #..." />
+                  <JFXButton fx:id="close" text="Cancel" />
+               </children>
+            </HBox>
+            <Label fx:id="reminder" alignment="CENTER" textFill="#f82020" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

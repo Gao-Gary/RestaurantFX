@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import main.Controller;
 import main.DataManager;
 import main.WindowManager;
+import main.model.restaurant.Employee;
+
+import javax.xml.crypto.Data;
 
 public class WaiterController implements Controller {
     @FXML private JFXButton cancel;
@@ -37,6 +40,7 @@ public class WaiterController implements Controller {
         int selectedTable = DataManager.getInstance().getSelectedTable();
         Label waiterLabel = DataManager.getInstance().getWaiter(selectedTable);
         waiterLabel.setText("Waiter: " + waiterList.getSelectionModel().getSelectedItem());
+        DataManager.getInstance().getTable(selectedTable).setWaiter(new Employee(waiterList.getSelectionModel().getSelectedItem()));
         cancel();
     }
 

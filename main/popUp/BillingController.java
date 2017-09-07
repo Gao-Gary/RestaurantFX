@@ -124,6 +124,9 @@ public class BillingController implements Controller{
         Label statusColour = DataManager.getInstance().getStatusColour(selectedTable);
         statusColour.setStyle("-fx-background-color: yellow;");
 
+        Label statusText = DataManager.getInstance().getStatus(selectedTable);
+        statusText.setText("Billing");
+
         DataManager.getInstance().getTable(selectedTable).checkPlease();
         close();
     }

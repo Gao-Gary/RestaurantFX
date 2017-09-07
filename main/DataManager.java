@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import main.model.food.FoodCategory;
 import main.model.food.FoodItem;
+import main.model.restaurant.Bill;
 import main.model.restaurant.Employee;
 import main.model.restaurant.Table;
 
@@ -20,13 +21,13 @@ public class DataManager {
     }
 
     private List<Employee> waiters;
-    private List<FoodItem> history;
     private HashMap<Integer, Table> tables;
     private HashMap<Integer, Label> statusList;
     private HashMap<Integer, Label> statusColour;
     private HashMap<Integer, Label> startTime;
     private HashMap<Integer, Label> waiterList;
     private HashMap<Integer, Label> numCusts;
+    private List<Bill> history;
     private int selectedTable;
     private Label activeLabel;
     private int activeTables;
@@ -141,4 +142,18 @@ public class DataManager {
     public Label getNumCustLabel(int forTable) { return numCusts.get(forTable);}
 
     public void putNumCustLabel(int forTable, Label numCustLabel) { numCusts.put(forTable, numCustLabel);}
+
+    public void putHistory(Bill bill) {
+        history.add(bill);
+    }
+
+    public ObservableList<FoodItem> getHistory() {
+        ObservableList<FoodItem> result = FXCollections.observableArrayList();
+
+        for(Bill bill : history) {
+            result.addAll(bill.getItems());
+        }
+
+        return result;
+    }
 }

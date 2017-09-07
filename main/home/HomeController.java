@@ -1,6 +1,7 @@
 package main.home;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -13,7 +14,7 @@ import main.Controller;
 import main.DataManager;
 import main.WindowManager;
 import main.model.food.FoodItem;
-
+import main.model.restaurant.Bill;
 
 
 public class HomeController implements Controller{
@@ -113,6 +114,12 @@ public class HomeController implements Controller{
 
     private void addItems() {
         int selectedTable = DataManager.getInstance().getSelectedTable();
+        Label statusText = DataManager.getInstance().getStatus(selectedTable);
+        if(statusText.getText().equals("Billing")) {
+            return;
+        }
+
+
         Stage stage = new Stage();
         windowManager.createView(stage, "OrderPopup");
         renderSideView(selectedTable);
@@ -177,6 +184,8 @@ public class HomeController implements Controller{
             return;
         }
 
+        Bill toAdd = DataManager.getInstance().getTable(selectedTable).getBill();
+        DataManager.getInstance().putHistory(toAdd);
         removeAll();
     }
 

@@ -13,14 +13,6 @@ public class FoodItem {
         this.quantity = 0.0;
     }
 
-    public void addOne() {
-        quantity++;
-    }
-
-    public void removeOne() {
-        quantity--;
-    }
-
     public Double getQuantity() {
         return quantity;
     }

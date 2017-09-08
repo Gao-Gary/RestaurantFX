@@ -115,7 +115,7 @@ public class OrderController implements Controller {
         }
 
         if(toAdd.isEmpty()) {
-            closePopUp();
+            reminderLabel.setText("Order is empty!");
         } else {
             int selectedTable = DataManager.getInstance().getSelectedTable();
             DataManager.getInstance().getTable(selectedTable).dine(numCustomers.getSelectionModel().getSelectedItem(),
@@ -145,6 +145,7 @@ public class OrderController implements Controller {
 
             Label numCust = DataManager.getInstance().getNumCustLabel(selectedTable);
             numCust.setText("Customers: " + numCustomers.getSelectionModel().getSelectedItem());
+            reminderLabel.setText("");
             closePopUp();
         }
     }

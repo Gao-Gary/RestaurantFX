@@ -30,6 +30,7 @@ public class HomeController implements Controller{
     @FXML private JFXButton addCust;
     @FXML private JFXButton changeWaiter;
     @FXML private JFXButton endSession;
+    @FXML private BorderPane window;
     @FXML private Label tablesActive;
     @FXML private GridPane tableGrid;
     @FXML private TableView<FoodItem> sidePanel;
@@ -110,6 +111,7 @@ public class HomeController implements Controller{
         endSession.setOnAction(e -> endSession());
         addCust.setOnAction(e -> addCust());
         billing.setOnAction(e -> startBilling());
+        history.setOnAction(e -> displayHistory());
     }
 
     private void addItems() {
@@ -128,7 +130,7 @@ public class HomeController implements Controller{
 
     private void removeEntry() {
         int selectedTable = DataManager.getInstance().getSelectedTable();
-        if(sidePanel.getItems().size() == 0 || sidePanel.getSelectionModel().getSelectedItem() == null)
+        if(sidePanel.getItems() == null || sidePanel.getItems().size() == 0 || sidePanel.getSelectionModel().getSelectedItem() == null)
             return;
 
         if(sidePanel.getItems().size() == 1) {
@@ -169,7 +171,7 @@ public class HomeController implements Controller{
     }
 
     private void changeWaiter() {
-        if(sidePanel.getItems().size() == 0)
+        if(sidePanel.getItems() == null || sidePanel.getItems().size() == 0)
             return;
 
         Stage stage = new Stage();
@@ -190,7 +192,7 @@ public class HomeController implements Controller{
     }
 
     private void addCust() {
-        if(sidePanel.getItems().size() == 0)
+        if(sidePanel.getItems() == null || sidePanel.getItems().size() == 0)
             return;
 
         Stage stage = new Stage();
@@ -198,11 +200,14 @@ public class HomeController implements Controller{
     }
 
     private void startBilling() {
-        if(sidePanel.getItems().size() == 0)
+        if(sidePanel.getItems() == null || sidePanel.getItems().size() == 0)
             return;
 
         Stage stage = new Stage();
         windowManager.createView(stage, "BillingPopup");
+    }
+
+    private void displayHistory() {
 
     }
 }

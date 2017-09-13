@@ -40,6 +40,7 @@ public class HomeController implements Controller{
 
 
     private WindowManager windowManager;
+    private Stage stage;
 
     private static final int numColumns = 5;
     private static final int numRows = 4;
@@ -51,6 +52,7 @@ public class HomeController implements Controller{
         tablesActive.setText("Tables Active: " + 0);
         DataManager.getInstance().setActiveLabel(tablesActive);
         this.windowManager = windowManager;
+        this.stage = stage;
         renderTables();
         renderSideView(1);
         addListeners();
@@ -208,6 +210,6 @@ public class HomeController implements Controller{
     }
 
     private void displayHistory() {
-
+        windowManager.createView(stage, "History");
     }
 }

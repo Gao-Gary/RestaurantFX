@@ -70,6 +70,9 @@ public class WindowManager {
             case "BillingPopup":
                 result = new FXMLLoader(getClass().getResource("popUp/BillingController.fxml"));
                 break;
+            case "History":
+                result = new FXMLLoader(getClass().getResource("home/HistoryController.fxml"));
+                break;
             default:
                 // TODO
                 result = null;

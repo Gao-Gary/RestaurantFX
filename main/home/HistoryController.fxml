@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="main.home.HistoryController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.home.HistoryController">
+   <bottom>
+      <HBox alignment="TOP_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="tablesActive" alignment="TOP_LEFT" />
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Menu" />
+            <JFXButton fx:id="dining" text="Dining" />
+            <JFXButton fx:id="manage" text="Manage" />
+            <JFXButton fx:id="history" text="History" />
+            <JFXButton fx:id="settings" text="Settings" />
+            <JFXButton fx:id="logout" text="Logout" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

@@ -24,6 +24,7 @@ public class LoginController implements Controller{
     }
 
     private boolean isAuthorized() {
+        // placeholder for authorization
         return true;
     }
 }

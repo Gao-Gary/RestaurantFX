@@ -15,5 +15,4 @@ Planned Features (TODO):
 - implement history tab (view sold items & waiter distribution)
 - implement settings tab (basic behavioural settings)
 - connect to an embedded database (H2 DBMS)
-- remove redundancy from data model
-- add CSS styling via FXML and external libraries 
+

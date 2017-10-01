@@ -1,4 +1,4 @@
-Java Desktop Application built upon the JavaFX, currently a work in progress.
+Java Desktop Application built upon JavaFX, currently a work in progress.
 Aims to simulate a simple restaurant management system
 
 Completed Features:

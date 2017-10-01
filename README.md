@@ -13,6 +13,5 @@ Completed Features:
 Planned Features (TODO):
 - implement manage tab (edit menu items, employees)
 - implement history tab (view sold items & waiter distribution)
-- implement settings tab (basic behavioural settings)
 - connect to an embedded database (H2 DBMS)
 
